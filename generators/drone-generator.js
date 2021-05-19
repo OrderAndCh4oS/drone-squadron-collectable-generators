@@ -5,9 +5,12 @@ import matrix from './generator-matrix.js';
 const droneGenerator = (colour) => {
     let skew = 1;
     const skewMod = Math.random();
+    if(skewMod < 0.02) skew -= 0.25;
+    if(skewMod < 0.10) skew -= 0.25;
+    if(skewMod < 0.10) skew -= 0.25;
     if(skewMod > 0.80) skew += 0.75;
-    if(skewMod > 0.90) skew += 0.75;
-    if(skewMod > 0.95) skew += 1;
+    if(skewMod > 0.90) skew += 1;
+    if(skewMod > 0.95) skew += 1.25;
     if(skewMod > 0.98) skew += 1.5;
     if(skewMod > 0.99) skew += 0.5;
     const set = matrix[~~(gaussian(0, 1, skew) * matrix.length)];
@@ -20,6 +23,8 @@ const droneGenerator = (colour) => {
         chassis: set[4],
         scanner: set[5],
         colour,
+        skewMod: skewMod.toFixed(3),
+        skew
     });
 };
 
