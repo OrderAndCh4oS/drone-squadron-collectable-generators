@@ -213,9 +213,7 @@ const nameGenerator = () => {
             [4, 4, 3, 3, 1, 1, 6, 6],
             [3, 3, 4, 4, 1, 1, 4, 4, 5, 5],
             [4, 4, 1, 1, 4, 4, 3, 3, 6, 6]],
-        fn = function(i) {
-            return Math.floor(Math.random() * vowels[i].length);
-        },
+        fn = i => Math.floor(Math.random() * vowels[i].length),
         name,
         comp,
         i, il,
@@ -227,7 +225,7 @@ const nameGenerator = () => {
         name += vowels[comp[i * 2]][fn(comp[i * 2 + 1])];
     }
 
-    name += Math.random() < 0.40 ? Math.random() < 0.5 ? ' ' +
+    name += Math.random() < 0.3 ? Math.random() < 0.5 ? ' ' +
         getVersionNumber() : ' ' + getMkNumeral() : '';
 
     return name.charAt(0).toUpperCase() + name.slice(1);

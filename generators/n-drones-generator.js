@@ -1,7 +1,6 @@
 import droneGenerator from './drone-generator.js';
 
-const nDronesGenerator = (n) => {
-    const colour = ~~(Math.random() * 6);
+const nDronesGenerator = (n, colour) => {
     return new Array(n).fill().map(_ => droneGenerator(colour));
 };
 

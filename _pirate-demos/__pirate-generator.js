@@ -143,7 +143,7 @@ function generateImage(seed, index = 1) {
     character.querySelector('.bounty').textContent = (new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(bounty)).substr(1);
 
     // Math.trunc((x.quick()*100)) returns something between 0 and 99, if we -1 and draw 0 we'll get
-    // an undefined name: name[-1] ;)
+    // an undefined squadronLeader: squadronLeader[-1] ;)
     var fullname = pirateFirstName[firstnameNumber] + " " + pirateLastName[lastnameNumber]
     character.querySelector('.fullname').textContent = fullname;
     character.querySelector('.firstname').textContent = pirateFirstName[firstnameNumber];

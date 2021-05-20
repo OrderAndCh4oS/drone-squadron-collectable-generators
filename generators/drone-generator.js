@@ -5,7 +5,7 @@ import matrix from './generator-matrix.js';
 const droneGenerator = (colour) => {
     let skew = 1;
     const skewMod = Math.random();
-    if(skewMod < 0.02) skew -= 0.25;
+    if(skewMod < 0.02) skew -= 0.35;
     if(skewMod < 0.10) skew -= 0.25;
     if(skewMod < 0.10) skew -= 0.25;
     if(skewMod > 0.80) skew += 0.75;
