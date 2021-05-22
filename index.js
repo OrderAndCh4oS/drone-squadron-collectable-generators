@@ -10,6 +10,7 @@ import ObjectsToCsv from 'objects-to-csv';
 import text2png from 'text2png';
 import sharp from 'sharp';
 import fs from 'fs';
+import { v4 as uuidv4 } from 'uuid';
 
 const getSprite = ({
     colour,
@@ -30,6 +31,10 @@ const getNormalisedSum = drone => ({
     scannerNormal: ((1 + drone.scanner) / scanners.length).toFixed(3),
 });
 
+function getNormalsAverage(normalValues) {
+    return (normalValues.reduce((x, v) => x + Number(v), 0) / normalValues.length).toFixed(3);
+}
+
 const generateDroneStats = (colour) => {
     const squad = nDronesGenerator(6, colour);
 
@@ -47,9 +52,7 @@ const generateDroneStats = (colour) => {
             scanner: scanners[s.scanner],
             keys: s,
             normals,
-            normalsAverage: (normalValues.reduce((x, v) => x + Number(v), 0) /
-                normalValues.length).toFixed(
-                3),
+            normalsAverage: getNormalsAverage(normalValues),
         });
     });
 };
@@ -149,10 +152,11 @@ const generateDroneCards = async(seedPath, smallCardPath, drones, seed, edition)
     }
 };
 
-const createSquadronData = (seed, drones) => ({
-    id: 1,
+const createSquadronData = (i, seed, drones, colour) => ({
+    id: i,
     seed,
     leader: drones.sort((a, b) => b.normalsAverage - a.normalsAverage)[0].name,
+    colour,
     value: (drones.reduce((sum, d) => {return sum + Number(d.normalsAverage);}, 0) /
         5).toFixed(
         3),
@@ -218,10 +222,10 @@ const generateThumb = async(seedPath, smallCardPath, seed, colour, number) => {
     ;
 };
 
-async function generateAllSquadrons(seeds) {
+async function generateAllSquadrons(seeds, outPath, name) {
     const allDrones = [];
     let allSquads = [];
-    const distPath = 'dist';
+    const distPath = outPath;
     makeDir(distPath);
     const smallCardPath = path.join('out', 'cards');
     makeDir(smallCardPath);
@@ -237,14 +241,19 @@ async function generateAllSquadrons(seeds) {
         const drones = generateDroneStats(colour);
         await generateDroneCards(seedPath, smallCardPath, drones, seed, i + 1);
         await generateThumb(seedPath, smallCardPath, seed, colour, i + 1);
-        const squadron = createSquadronData(seed, drones);
+        const squadron = createSquadronData(i, seed, drones, colour);
         fs.writeFileSync(dataPath, JSON.stringify(squadron));
-        allDrones.push(squadron.drones);
+        allDrones.push(...squadron.drones);
         allSquads.push(squadron);
     }
 
-    await new ObjectsToCsv(allDrones).toDisk('./drones.csv');
-    await new ObjectsToCsv(allSquads).toDisk('./squads.csv');
+    await new ObjectsToCsv(allDrones).toDisk(path.join(distPath, 'drones.csv'));
+    await new ObjectsToCsv(allSquads).toDisk(path.join(distPath, 'squads.csv'));
+    fs.writeFileSync(path.join(distPath, `${name}-queue.js`), `const ${name}Queue = ${JSON.stringify(allSquads
+        .sort((a, b) => a.value - b.value)
+        .map(s => ({id: s.id, seed: s.seed, value: s.value, leader: s.leader}))
+    )};
+    export default ${name}Queue;`);
 }
 
 const seeds = [
@@ -260,4 +269,8 @@ const seeds = [
     'oo4BdW1hAcN9TNcM2fAo3EsB6km7tLF58NVibKQGYGQrwduphfj',
 ];
 
-await generateAllSquadrons(seeds);
+const distPath = 'dist';
+makeDir(distPath);
+
+await generateAllSquadrons(seeds, path.join(distPath, 'player-drones'), 'player');
+await generateAllSquadrons(new Array(100).fill().map(() => uuidv4()), path.join(distPath, 'enemy-drones'), 'enemy');

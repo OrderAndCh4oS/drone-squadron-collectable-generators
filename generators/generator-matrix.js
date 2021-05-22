@@ -1,6 +1,6 @@
 const generateMatrix = () => {
     const matrix = [];
-    for(let a = 0; a < 3; a++) { // weapon
+    for(let a = 0; a < 5; a++) { // weapon
         for(let b = 0; b < 6; b++) { // gimbal
             for(let c = 0; c < 6; c++) { // wings
                 for(let d = 0; d < 5; d++) { // engine
@@ -14,7 +14,7 @@ const generateMatrix = () => {
         }
     }
 
-    return matrix.sort((a, b) => b.reduce((a, b) => a + b, 0) - a.reduce((a, b) => a + b, 0));
+    return matrix.sort((a, b) => a.reduce((a, b) => a + b, 0) - b.reduce((a, b) => a + b, 0));
 };
 
 const matrix = generateMatrix();
