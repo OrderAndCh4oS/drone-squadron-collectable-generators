@@ -74,13 +74,14 @@ const textData = (colour) => ({
     output: 'buffer',
 });
 
-const generateDroneCards = async(seedPath, smallCardPath, drones, seed, edition) => {
+const generateDroneCards = async(seedPath, cardOutPath, drones, seed, edition) => {
     try {
         let i = 1;
         for(const drone of drones) {
             const outPath = path.join(seedPath, `${i}_drone.png`);
             const cardPath = path.join('sprites', 'cards', `${drone.colour}.png`);
-            const smallOutPath = path.join(smallCardPath, `${i}_drone_small.png`);
+            const smallOutPath = path.join(cardOutPath, `${i}_drone_small.png`);
+            const largeOutPath = path.join(cardOutPath, `${i}_drone_large.png`);
             const sprite = getSprite(drone.keys);
             const value = await sharp(
                 text2png(drone.normalsAverage, {
@@ -145,6 +146,7 @@ const generateDroneCards = async(seedPath, smallCardPath, drones, seed, edition)
                 )
                 .png().toFile(path.join(outPath));
             await sharp(outPath).resize(302, 418).toFile(path.join(smallOutPath));
+            await sharp(outPath).resize(504, 698).toFile(path.join(largeOutPath));
             i++;
         }
     } catch(e) {
@@ -164,7 +166,7 @@ const createSquadronData = (i, seed, drones, colour) => ({
         (d) => ({seed: seed.toString(), ...d.keys, value: d.normalsAverage, ...d.normals})),
 });
 
-const generateThumb = async(seedPath, smallCardPath, seed, colour, number) => {
+const generateThumb = async(seedPath, cardOutPath, seed, colour, number) => {
     const backPath = path.join('sprites', 'drone-cards-thumbnail.png');
     const text = await sharp(
         text2png(`Drone Squadron #${pad(number, 4)}`, {
@@ -177,40 +179,42 @@ const generateThumb = async(seedPath, smallCardPath, seed, colour, number) => {
             ...textData(colours[colour]),
         }),
     ).toBuffer({resolveWithObject: true});
-    let cards = [];
+    let smallCards = [];
+    let largeCards = [];
     for(let i = 1; i <= 6; i++) {
-        cards.push(path.join(smallCardPath, `${i}_drone_small.png`));
+        smallCards.push(path.join(cardOutPath, `${i}_drone_small.png`));
+        largeCards.push(path.join(cardOutPath, `${i}_drone_large.png`));
     }
     await sharp(backPath)
         .composite(
             [
                 {
-                    input: cards[0],
+                    input: smallCards[0],
                     left: 46,
                     top: 123,
                 },
                 {
-                    input: cards[1],
+                    input: smallCards[1],
                     left: 361,
                     top: 123,
                 },
                 {
-                    input: cards[2],
+                    input: smallCards[2],
                     left: 676,
                     top: 123,
                 },
                 {
-                    input: cards[3],
+                    input: smallCards[3],
                     left: 46,
                     top: 554,
                 },
                 {
-                    input: cards[4],
+                    input: smallCards[4],
                     left: 361,
                     top: 554,
                 },
                 {
-                    input: cards[5],
+                    input: smallCards[5],
                     left: 676,
                     top: 554,
                 },
@@ -220,6 +224,37 @@ const generateThumb = async(seedPath, smallCardPath, seed, colour, number) => {
         .png()
         .toFile(path.join(seedPath, 'thumbnail.png'))
     ;
+
+    return largeCards;
+};
+
+const generateUvMap = async(seedPath, colour, card, i) => {
+    const edge = path.join('sprites', 'uv-map', `${colours[colour]}-edge.png`);
+    const back = path.join('sprites', 'uv-map', `${colours[colour]}-back.png`);
+    const uvSlots = path.join('sprites', 'uv-map', 'uv-slots.png');
+    await sharp(edge)
+        .composite(
+            [
+                {
+                    input: card,
+                    left: 0,
+                    top: 325,
+                },
+                {
+                    input: back,
+                    left: 503,
+                    top: 325,
+                },
+                {
+                    input: uvSlots,
+                    left: 0,
+                    top: 0,
+                },
+            ],
+        )
+        .png()
+        .toFile(path.join(seedPath, `${i + 1}-card-uv.png`))
+    ;
 };
 
 async function generateAllSquadrons(seeds, outPath, name) {
@@ -227,8 +262,8 @@ async function generateAllSquadrons(seeds, outPath, name) {
     let allSquads = [];
     const distPath = outPath;
     makeDir(distPath);
-    const smallCardPath = path.join('out', 'cards');
-    makeDir(smallCardPath);
+    const cardOutPath = path.join('out', 'cards');
+    makeDir(cardOutPath);
 
     for(let i = 0; i < seeds.length; i++) {
         const seed = seeds[i];
@@ -239,8 +274,11 @@ async function generateAllSquadrons(seeds, outPath, name) {
         const dataPath = path.join(seedPath, 'squadron.json');
         const colour = ~~(Math.random() * 6);
         const drones = generateDroneStats(colour);
-        await generateDroneCards(seedPath, smallCardPath, drones, seed, i + 1);
-        await generateThumb(seedPath, smallCardPath, seed, colour, i + 1);
+        await generateDroneCards(seedPath, cardOutPath, drones, seed, i + 1);
+        const cards = await generateThumb(seedPath, cardOutPath, seed, colour, i + 1);
+        for(let j = 0; j < cards.length; j++){
+            await generateUvMap(seedPath, colour, cards[j], j);
+        }
         const squadron = createSquadronData(i, seed, drones, colour);
         fs.writeFileSync(dataPath, JSON.stringify(squadron));
         allDrones.push(...squadron.drones);

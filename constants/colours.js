@@ -8,8 +8,8 @@ export const colours = [
 ];
 
 export const colourHex = {
-    candy: '#FF2BE4',
-    toxic: '#4DFFC2',
+    'candy': '#FF2BE4',
+    'toxic': '#33FF9F',
     'constructivist-real': '#FF4100',
     'order-and-chaos': '#FFF73D',
     'pistachio-and-peach': '#9C36B3',
