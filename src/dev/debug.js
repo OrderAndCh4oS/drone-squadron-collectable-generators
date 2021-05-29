@@ -3,7 +3,7 @@ export default class Debug {
         this._gameGridToggle = false;
         this._scannerRadiusToggle = false;
         this._scannerPathToggle = false;
-        // this._droneNameToggle = true;
+        this._droneNameToggle = true;
         this._droneDataToggle = false;
         this._gameGridLog = false;
     }
@@ -24,9 +24,9 @@ export default class Debug {
         return this._gameGridToggle;
     }
 
-    // get droneNameToggle() {
-    //     return this._droneNameToggle;
-    // }
+    get droneNameToggle() {
+        return this._droneNameToggle;
+    }
 
     get scannerPathToggle() {
         return this._scannerPathToggle;

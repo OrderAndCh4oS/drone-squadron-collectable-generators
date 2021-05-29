@@ -1,0 +1,4 @@
+GET https://api.tzkt.io/v1/operations/transactions?target=KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton&entrypoint=transfer&status=applied&limit=10000&parameter.[0].txs.[0].token_id=103271&parameter.[0].txs.[0].to_=tz1burnburnburnburnburnburnburjAYjjX&select=id,hash,parameter
+Accept: application/json
+
+###
