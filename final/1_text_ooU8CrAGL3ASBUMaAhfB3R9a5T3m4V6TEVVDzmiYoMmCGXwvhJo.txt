@@ -1,0 +1,5 @@
+Drone Squadron: Elite #0001
+---
+Drones Gaphus (0.756), Woyama v47.20 (0.711), Samia (0.695), Detania Mk LIV (0.683), Meruta v45.20 (0.678), Ganov v44.95 (0.611) were created by tz1UZGPJtRLsNyYUuYyQU9DSepSF13XxYxFk with seed ooU8CrAGL3ASBUMaAhfB3R9a5T3m4V6TEVVDzmiYoMmCGXwvhJo. By @__orderandchaos.
+---
+Drone Squadron, Collectable, Cards, Interactive, Random, Generative

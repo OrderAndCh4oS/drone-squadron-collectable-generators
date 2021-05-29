@@ -131,9 +131,8 @@ body {
 .loading {
     display: none;
     position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    left: 20px;
+    bottom: 20px;
     color: #bfbfbf;
     letter-spacing: 2px;
     text-transform: uppercase;

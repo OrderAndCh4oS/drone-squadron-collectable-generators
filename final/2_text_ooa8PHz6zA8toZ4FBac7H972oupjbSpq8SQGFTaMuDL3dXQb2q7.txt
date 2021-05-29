@@ -1,0 +1,5 @@
+Drone Squadron: Elite #0002
+---
+Drones Nonia (0.656), Henia v33.30 (0.644), Westea v48.19 (0.639), Quter (0.606), Vamia (0.594), Westea Mk LX (0.483) were created by tz1fhd4k1jSJRRcNVbkMwVzkKEhX3kzApsfk with seed ooa8PHz6zA8toZ4FBac7H972oupjbSpq8SQGFTaMuDL3dXQb2q7. By @__orderandchaos.
+---
+Drone Squadron, Collectable, Cards, Interactive, Random, Generative

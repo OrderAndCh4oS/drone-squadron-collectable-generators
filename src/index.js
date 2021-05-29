@@ -62,9 +62,6 @@ window.onresize = async() => {
     canvas.height = window.innerHeight;
     background.update();
     background.draw();
-    if(game.state !== 'stopped') {
-        await initialise();
-    }
 };
 
 window.onload = async() => {
@@ -77,7 +74,7 @@ window.onload = async() => {
     await audioManager.setAudioFile('phase-rifle', 'assets/audio/sound/phase-rifle.wav');
     await audioManager.setAudioFile('fusion-cannon', 'assets/audio/sound/fusion-cannon.wav');
     await audioManager.setAudioFile('plasma-cannon', 'assets/audio/sound/plasma-cannon.wav');
-    await audioManager.setAudioFile('music', 'assets/audio/music/game-music.mp3', 'audio/mpeg');
+    await audioManager.setAudioFile('music', 'assets/audio/music.mp3', 'audio/mpeg');
     loading.style.display = 'none';
     startAnimating(60);
 };
@@ -151,8 +148,6 @@ function setFrameTimeData() {
     }
 }
 
-let i = 0;
-
 function animate() {
     background.draw();
     deltaTime.update();
@@ -166,7 +161,7 @@ function animate() {
         UI.displaySquadData();
         if(game.state === 'playing' && squadrons[0]?.health > 0 && squadrons[1]?.health <= 0) {
             game.rank++;
-            continueButton.style.display = 'block';
+            if(game.rank !== 100) continueButton.style.display = 'block';
         }
         if(game.state === 'playing' && squadrons[0]?.health <= 0 && squadrons[1]?.health > 0) {
             game.rank = 0;
