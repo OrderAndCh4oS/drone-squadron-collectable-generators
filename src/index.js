@@ -26,7 +26,12 @@ import GameOver from './user-interface/display-game-over.js';
 import enemyQueue from './data/enemy-drones/enemy-queue.js';
 
 let fpsInterval, startTime, now, then, elapsed;
-let highScore = window.localStorage.getItem('drone-squadron-high-score') || 0;
+let highScore = 0;
+try {
+    highScore = window.localStorage.getItem('drone-squadron-high-score') || 0;
+} catch(e) {
+    console.warn('Security policy prevented access to localStorage, high scores cannot be stored')
+}
 debug.initialiseListeners();
 
 startButton.onclick = async function() {
@@ -167,8 +172,12 @@ function animate() {
             game.rank = 0;
             if(scoreManager.playerOneScore > highScore) {
                 highScore = scoreManager.playerOneScore;
-                window.localStorage.setItem('drone-squadron-high-score', highScore);
-                highScoreEl.innerText = highScore;
+                try {
+                    window.localStorage.setItem('drone-squadron-high-score', highScore.toString());
+                } catch(e) {
+                    console.warn('Security policy prevented access to localStorage, high scores cannot be stored')
+                }
+                highScoreEl.innerText = highScore.toString();
             }
         }
         if(squadrons[0]?.health <= 0 || squadrons[1]?.health <= 0) game.state = 'game-over';
