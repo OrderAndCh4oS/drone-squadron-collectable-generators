@@ -1,9 +1,7 @@
 import nameGenerator from './name-generator.js';
-import gaussian from '../gaussian.js';
 import matrix from './generator-matrix.js';
 
 const droneGenerator = (colour) => {
-    let skew = 1;
     // const skewMod = Math.random();
     // if(skewMod < 0.02) skew -= 0.35;
     // if(skewMod < 0.10) skew -= 0.25;
@@ -23,8 +21,6 @@ const droneGenerator = (colour) => {
         chassis: set[4],
         scanner: set[5],
         colour,
-        skewMod: 0,
-        skew
     });
 };
 
