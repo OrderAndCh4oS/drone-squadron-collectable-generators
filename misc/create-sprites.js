@@ -1,6 +1,6 @@
 import path from 'path';
 import sharp from 'sharp';
-import { colours } from './constants/colours.js';
+import { colours } from '../constants/colours.js';
 import { makeDir } from './utilities.js';
 
 const visorSprites = ['visor-1.png'];

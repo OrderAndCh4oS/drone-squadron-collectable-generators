@@ -153,6 +153,7 @@ function setFrameTimeData() {
     }
 }
 
+
 function animate() {
     background.draw();
     deltaTime.update();

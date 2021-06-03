@@ -1,7 +1,7 @@
 import nDronesGenerator from './generators/n-drones-generator.js';
 import { weapons } from './constants/weapons.js';
 import { chassis, colours, gimbals, scanners, steering, thrusters } from './constants/utilities.js';
-import { makeDir } from './utilities.js';
+import { makeDir } from './misc/utilities.js';
 import { colourHex } from './constants/colours.js';
 
 import seedrandom from 'seedrandom';
@@ -282,18 +282,12 @@ const makeText = (walletId, seed, squadron, edition) => {
     return `${title}\n---\n${text}\n---\n${tags}\n`;
 };
 
-const makeDiscord = (walletId, seed, squadron, edition) => {
-    const title = `Drone Squadron: Elite #${pad(edition, 4)}`;
-    const text = `Drones ${squadron.drones.map(d => `${d.name} (${d.value})`)
-        .join(', ')}\n\nCreated by ${walletId}\nSeed ${seed}`;
-    return `${title}\n---\n${text}\n`;
-};
-
 const makeTweet = (walletId, seed, squadron, edition) => {
     const title = `Drone Squadron: Elite #${pad(edition, 4)}`;
     const text = `Drones ${squadron.drones.map(d => `${d.name} (${d.value})`).join(', ')}.`;
+    const burnLink = `Burn Token: https://hic.link/103271`;
     const tags = `#hicetnunc #generative\n#nft #CleanNFT #NFTcollectibles`;
-    return `{link}\n\n${title}\n---\n${text}\n\n${tags}\n`;
+    return `{link}\n\n${title}\n---\n${text}\n\n${burnLink}\n\n${tags}\n`;
 };
 
 async function generateAllSquadrons(seeds) {
@@ -314,12 +308,9 @@ async function generateAllSquadrons(seeds) {
         }
         const squadron = createSquadronData(i, seed, drones, colour);
         fs.writeFileSync(dataPath, JSON.stringify(squadron));
-        fs.writeFileSync(path.join(finalPath, `${edition}_text_${seed}.txt`),
-            makeText(walletId, seed, squadron, edition));
-        fs.writeFileSync(path.join(finalPath, `${edition}_tweet_${seed}.txt`),
-            makeTweet(walletId, seed, squadron, edition));
-        fs.writeFileSync(path.join(finalPath, `${edition}_discord_${seed}.txt`),
-            makeDiscord(walletId, seed, squadron, edition));
+        fs.writeFileSync(path.join(finalPath, `${edition}_squadron_${seed}.json`), JSON.stringify(squadron));
+        fs.writeFileSync(path.join(finalPath, `${edition}_text_${seed}.txt`), makeText(walletId, seed, squadron, edition));
+        fs.writeFileSync(path.join(finalPath, `${edition}_tweet_${seed}.txt`), makeTweet(walletId, seed, squadron, edition));
 
         await copySrc(seed, edition);
     }
@@ -338,10 +329,12 @@ async function generateStats(seeds) {
     makeDir(cardOutPath);
     for(let i = 0; i < seeds.length; i++) {
         const seed = seeds[i].seed;
+        const edition = seeds[i].edition;
         seedrandom(seed, {global: true});
         const colour = ~~(Math.random() * 6);
         const drones = generateDroneStats(colour);
         const squadron = createSquadronData(i, seed, drones, colour);
+        fs.writeFileSync(path.join(finalPath, `${edition}_squadron_${seed}.json`), JSON.stringify(squadron));
         allDrones.push(...squadron.drones);
         allSquads.push(squadron);
     }
@@ -480,18 +473,49 @@ const allSeeds = [
         walletId: 'tz1d4zP1ZbzvXo9nzGVADieAYRyTLJzFvPvW',
         edition: 26
     },
+    {
+        seed: 'ookH7Yy279PWSuC6ZuUQvgFA6e76Kmub2mFHMg7CHZTP3CoA5y7',
+        walletId: 'tz1QpvURES6sBsL6gGh4aeBRtw6ShcAjYj6u',
+        edition: 27
+    },
+    {
+        seed: 'ooKNGBWRhtqpBY6SBhAwNFShusmoAi5uZ9txc9jJMzbkvzfqF9M',
+        walletId: 'tz1QWFRpbN4rA8vABvxPAREtuffu6F1VKFTB',
+        edition: 28
+    },
+    {
+        seed: 'op46GHGnfhoWpK4JDqPqxX35EV22T6bawRobxX6CcirnFfKKvED',
+        walletId: 'tz1ehhHuAQXrdXukswG2PP7TnptsEfHDxbZK',
+        edition: 29
+    },
+    {
+        seed: 'opDVjVpVF2zmhLK1BRca3MLgM3CcRodrVGmMe7sg8iB2ENFWYcM',
+        walletId: 'tz1M348mq4NQsN56yGhFtLo66LDRHD9WjHSu',
+        edition: 30
+    },
+    {
+        seed: 'ooqzMn5bPFMXF1f6ymaxDnXUcQMhU4v6mLc6gv38pFrYeDcRysC',
+        walletId: 'tz1Tp2oAMsVSbYvvvuAP9sdFsuXd5Q414WJU',
+        edition: 31
+    },
 ];
 
 const currentSeeds = [
+    {
+        seed: 'opRSNtzQERYoZhr5CUSBXQMZKYogcDNStFGAGqmmShR4z2JGMYq',
+        walletId: 'tz1fhd4k1jSJRRcNVbkMwVzkKEhX3kzApsfk',
+        edition: 32
+    }
 
 ];
 
 const distPath = 'dist';
 makeDir(distPath);
 
+// await generateAllSquadrons(allSeeds);
 await generateAllSquadrons(currentSeeds);
 // Note: Stats Only
-await generateStats(allSeeds);
+// await generateStats(allSeeds);
 // Note: Enemies
 // await generateAllSquadrons(new Array(100).fill().map(() => uuidv4()), path.join(distPath, 'enemy-drones'), 'enemy');
 // Note: Test Only
