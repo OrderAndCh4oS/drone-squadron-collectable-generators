@@ -623,9 +623,6 @@ const allSeeds = [
         walletId: 'tz1N5LxqGVNxim9F9hVAciPGqxNjqscL1eUL',
         edition: 53
     },
-];
-
-const currentSeeds = [
     {
         seed: 'oodUa4mqJgEavWh8cztcL9DztguWmBdXm6fALHDEftFteNBqnjC',
         walletId: 'tz1VjQwV2YrNchNz2CtCHaM6VhkyKXeiujmz',
@@ -640,6 +637,69 @@ const currentSeeds = [
         seed: 'ooiQEnSBj3Y7ULvXK9hmTp1ZSU8pUHeDRg1EME4iHFzPR1Qntd9',
         walletId: 'tz1VjaaBTjSEywNDdtHyQsdPKquDxKMwkmWp',
         edition: 56
+    },
+    {
+        seed: 'oofazm4ha4yz36mdKnL5D8WSbgAooSynyYf2gm46pCpGXuWZ9Vx',
+        walletId: 'tz1bgkctNuMBKKkmqdw1NVTKChv5Sewb5t9y',
+        edition: 57
+    },
+    {
+        seed: 'ooCBsk4fBnAiUGBH7yn69nYUvNKqoHfWvk7DxzUttYF9Y1rMqWK',
+        walletId: 'tz1VdW8kSNjausgiMw19ZECcB2Gn4pEtxH9w',
+        edition: 58
+    },
+    {
+        seed: 'oo5gE2wtQn22VH4tJxNgGFwGoizt1G2qEUXMnfRhZDUUsHGE1Xk',
+        walletId: 'tz1VjQwV2YrNchNz2CtCHaM6VhkyKXeiujmz',
+        edition: 59
+    },
+    {
+        seed: 'oo5gE2wtQn22VH4tJxNgGFwGoizt1G2qEUXMnfRhZDUUsHGE1Xk_2',
+        walletId: 'tz1VjQwV2YrNchNz2CtCHaM6VhkyKXeiujmz',
+        edition: 60
+    },
+    {
+        seed: 'oo5gE2wtQn22VH4tJxNgGFwGoizt1G2qEUXMnfRhZDUUsHGE1Xk_3',
+        walletId: 'tz1VjQwV2YrNchNz2CtCHaM6VhkyKXeiujmz',
+        edition: 61
+    },
+    {
+        seed: 'ooe12bY28vXxjgsJ9BfHtAxPG9MMDA2H6zuPHFXbg5AAL9Pviu2',
+        walletId: 'tz2LjW2Zw6VY8G5aaH7JUBN4XdYSF3mKqGh8',
+        edition: 62
+    },
+    {
+        seed: 'op5osbkMxU2cjHFh2F8nTk7b5v4KhXdYfUoSdCA6vW98tHbVRP9',
+        walletId: 'tz1i5uekB9LeMyJFZKbMD4PkKwSJHpcXVrBJ',
+        edition: 63
+    },
+    {
+        seed: 'op5osbkMxU2cjHFh2F8nTk7b5v4KhXdYfUoSdCA6vW98tHbVRP9_2',
+        walletId: 'tz1i5uekB9LeMyJFZKbMD4PkKwSJHpcXVrBJ',
+        edition: 64
+    },
+    {
+        seed: 'op5osbkMxU2cjHFh2F8nTk7b5v4KhXdYfUoSdCA6vW98tHbVRP9_3',
+        walletId: 'tz1i5uekB9LeMyJFZKbMD4PkKwSJHpcXVrBJ',
+        edition: 65
+    },
+    {
+        seed: 'ooXXsQgkjUaQz8TgXU4MxR57dVrmY6eR4UEYpAfFMcckKSbxbZv',
+        walletId: 'tz1iaGYzLKTnatyN7UjimbKfYdUEwiG9xKM5',
+        edition: 66
+    },
+];
+
+const currentSeeds = [
+    {
+        seed: 'ooWz7iE2D8MBYnVMUX5JPfbRyPrsyTXskyM3aVv5HkDda8ytPdT',
+        walletId: 'tz29tCQDFw8KwaMaBuroze6Sv2qd47nnP5Hv',
+        edition: 67
+    },
+    {
+        seed: 'ooWz7iE2D8MBYnVMUX5JPfbRyPrsyTXskyM3aVv5HkDda8ytPdT_2',
+        walletId: 'tz29tCQDFw8KwaMaBuroze6Sv2qd47nnP5Hv',
+        edition: 68
     }
 ];
 
