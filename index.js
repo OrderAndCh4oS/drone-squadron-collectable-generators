@@ -688,9 +688,6 @@ const allSeeds = [
         walletId: 'tz1iaGYzLKTnatyN7UjimbKfYdUEwiG9xKM5',
         edition: 66
     },
-];
-
-const currentSeeds = [
     {
         seed: 'ooWz7iE2D8MBYnVMUX5JPfbRyPrsyTXskyM3aVv5HkDda8ytPdT',
         walletId: 'tz29tCQDFw8KwaMaBuroze6Sv2qd47nnP5Hv',
@@ -700,6 +697,14 @@ const currentSeeds = [
         seed: 'ooWz7iE2D8MBYnVMUX5JPfbRyPrsyTXskyM3aVv5HkDda8ytPdT_2',
         walletId: 'tz29tCQDFw8KwaMaBuroze6Sv2qd47nnP5Hv',
         edition: 68
+    },
+];
+
+const currentSeeds = [
+    {
+        seed: 'opEPFzsSY4dT7UvauQK2U56wFLng6tbFgFNBF4yZ1TGJij5ncMQ',
+        walletId: 'tz2LjW2Zw6VY8G5aaH7JUBN4XdYSF3mKqGh8',
+        edition: 69
     }
 ];
 
