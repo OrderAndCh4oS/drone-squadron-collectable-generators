@@ -12,6 +12,7 @@ import sharp from 'sharp';
 import fs from 'fs';
 import util from 'util';
 import { exec } from 'child_process';
+import { v4 as uuidv4 } from 'uuid';
 
 const execAsync = util.promisify(exec);
 
@@ -320,6 +321,26 @@ async function generateAllSquadrons(seeds) {
     //         .map(s => ({id: s.id, seed: s.seed, value: s.value, leader: s.leader})),
     //     )};
     // export default ${name}Queue;`);
+}
+
+async function generateEnemySquadronData(n) {
+    const enemyDronesPath = path.join('dist', 'enemy-drones');
+    const enemies = []
+    for(let i = 0; i < n; i++) {
+        const seed = uuidv4();
+        seedrandom(seed, {global: true});
+        const colour = ~~(Math.random() * 6);
+        const drones = generateDroneStats(colour);
+        const squadron = createSquadronData(i, seed, drones, colour);
+        enemies.push(squadron)
+        fs.writeFileSync(path.join(enemyDronesPath, `${seed}.json`), JSON.stringify(squadron));
+    }
+    fs.writeFileSync(path.join(enemyDronesPath, `enemy-queue.js`),
+        `const enemyQueue = ${JSON.stringify(enemies
+            .sort((a, b) => a.value - b.value)
+            .map(s => ({id: s.id, seed: s.seed, value: s.value, leader: s.leader})),
+        )};
+    export default enemyQueue;`);
 }
 
 async function generateStats(seeds) {
@@ -832,16 +853,45 @@ const allSeeds = [
         seed: 'oogyCfJTKDrf71ZomEE5os8GMz7mrRjT5YfKRPQMHgqP851Q7ga',
         walletId: 'tz1dghi1QtW2ATgLjWEw6agacKXQifkZSNA3',
         edition: 95
+    },
+    {
+        seed: 'onjmECzrCMgvm6cDGAmDVam48eDjV4EcDtKCP1qRoELaFaZ8GM4',
+        walletId: 'tz1YxmRHQRy1WVbo1k5ZaG7iuEqPowLkBKqi',
+        edition: 96
+    },
+    {
+        seed: 'ooSh3oE4bdJrecY9pdQFv1J3AnW5PKNVWph7m312TEYuJ8KjLrK',
+        walletId: 'tz1R53ECSBpkmcXLtxJxvuvM7KoqETHimHRf',
+        edition: 97
+    },
+    {
+        seed: 'ooePFfiDao4ingVYXLo713LkByaXsxcVVfvCssDD6MeUGvWTcW5',
+        walletId: 'tz1dd2tmTJFRJh8ycLuZeMpKLquJYkMypu2Q',
+        edition: 98
+    },
+    {
+        seed: 'oohPMM5wqKxFg4CMmgn5XCthTebPQ71n6kspKSrRRsmnGN9nhBx',
+        walletId: 'tz1McVAjR9YULDNWTUpSKtutjYCWzfKFF7h9',
+        edition: 99
+    },
+    {
+        seed: 'oosTNuxQw6uCSbHjdSKAjnmkNVpMhVZbwBXGapQ1wYMY5ziR2VZ',
+        walletId: 'tz1PqooZUtCQqP539PmMzUWHtaUX6EQtFY5S',
+        edition: 100
     }
 ];
 
 const currentSeeds = [
     {
-        seed: 'onjmECzrCMgvm6cDGAmDVam48eDjV4EcDtKCP1qRoELaFaZ8GM4',
-        walletId: 'tz1YxmRHQRy1WVbo1k5ZaG7iuEqPowLkBKqi',
-        edition: 96
+        seed: 'oozeUb3px2aG618HWQqjfGqRpwMxjzvGrSgK5D5Qidwtkvivo8x',
+        walletId: 'tz1esEY2yNUNAFnescGecqbiEjuB7W5uvJNE',
+        edition: 101
+    },
+    {
+        seed: 'ooLzvDjp7M3KgWw7Ua4avKaCv7VcTKe8EGYn2JxkTLSAYopueAT',
+        walletId: 'tz1d4nw6znAeP9ovjdvTJEN6t88ai6b912QU',
+        edition: 102
     }
-
 ];
 
 const distPath = 'dist';
@@ -852,6 +902,6 @@ await generateAllSquadrons(currentSeeds);
 // Note: Stats Only
 // await generateStats(allSeeds);
 // Note: Enemies
-// await generateAllSquadrons(new Array(100).fill().map(() => uuidv4()), path.join(distPath, 'enemy-drones'), 'enemy');
+await generateEnemySquadronData(10);
 // Note: Test Only
 // await generateAllSquadrons(testSeeds, 'player');

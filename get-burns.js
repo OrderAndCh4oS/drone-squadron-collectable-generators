@@ -25,6 +25,6 @@ const getBurns = async(objktId) => {
 const burns = await getBurns(103271);
 await new ObjectsToCsv(burns).toDisk(path.join('csv', `burns.csv`));
 
-console.log(burns);
+console.log(burns.slice(-30));
 console.log('BURNS:', burns.length);
 
