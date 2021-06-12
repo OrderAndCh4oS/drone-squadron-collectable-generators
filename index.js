@@ -898,15 +898,15 @@ const allSeeds = [
         seed: 'opNDNcqBqmzXcenh1LhGkitV7eU82hq2WLMGj6W6TedMiZhzYzC',
         walletId: 'tz1VCjq6K1XpxTYstoHF2TuG8AFr4vp3JC8G',
         edition: 104
-    }
-];
-
-const currentSeeds = [
+    },
     {
         seed: 'onpCiLR1tQvCzVWQ6ise7DphkUnYB7x8EHFt17aySs8gCiaEzNb',
         walletId: 'tz1ZGQ9DKUy8JeSS6WrYrDr1rC68bjgwbxVB',
         edition: 105
     }
+];
+
+const currentSeeds = [
 
 ];
 
