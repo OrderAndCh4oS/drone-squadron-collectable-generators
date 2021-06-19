@@ -929,14 +929,28 @@ const allSeeds = [
         walletId: 'tz1McVAjR9YULDNWTUpSKtutjYCWzfKFF7h9',
         edition: 110
     },
-];
-
-const currentSeeds = [
-
     {
         seed: 'onsT9RC36QetrjkSBM29EEtZhNG3ADScw7UW5Zt6HTLA9BGUHVU',
         walletId: 'tz1esEY2yNUNAFnescGecqbiEjuB7W5uvJNE',
         edition: 111
+    },
+    {
+        seed: 'op2okgx9UmjuqZySFVTYiqj857ZGZdqjLFmsK33ds71dYcrht69',
+        walletId: 'tz2Mz3ovkZR2HyC89CHHSdsrPya1mKSmLWfD',
+        edition: 112
+    },
+    {
+        seed: 'opTf8wUugRazBDstepp52woq16xPGeuNsrT3vc3c53sjuvRFfoa',
+        walletId: 'tz1KySTBB8RXWVraggfXWLaLR9H3K3JBEbgt',
+        edition: 113
+    }
+];
+
+const currentSeeds = [
+    {
+        seed: 'ookeutv2wDQQTi3skcYf9svJ76axnuKkMM17kZHXCVsnrJoH149',
+        walletId: 'tz1f7LPedx2RMTthZUfdySURZPZsBeQb2TFK',
+        edition: 114
     }
 ];
 
