@@ -943,14 +943,144 @@ const allSeeds = [
         seed: 'opTf8wUugRazBDstepp52woq16xPGeuNsrT3vc3c53sjuvRFfoa',
         walletId: 'tz1KySTBB8RXWVraggfXWLaLR9H3K3JBEbgt',
         edition: 113
-    }
-];
-
-const currentSeeds = [
+    },
     {
         seed: 'ookeutv2wDQQTi3skcYf9svJ76axnuKkMM17kZHXCVsnrJoH149',
         walletId: 'tz1f7LPedx2RMTthZUfdySURZPZsBeQb2TFK',
         edition: 114
+    },
+    {
+        seed: 'opQRGj2JQdKtX351y882zqhqsdGkaLweCJrEzfzAKDYtevywqTZ',
+        walletId: 'tz1f7LPedx2RMTthZUfdySURZPZsBeQb2TFK',
+        edition: 115
+    },
+    {
+        seed: 'onwWhF1qhHhboQTm3BXjFzu921ffDBCBUCfbhAJjn4pcmG3GnAj',
+        walletId: 'tz1KggojgYhTawRaj2r9i8mTANNr2Dsn44cx',
+        edition: 116
+    },
+    {
+        seed: 'ooqy95F4fEJFYXTi9ixMYZC5zKbxPcis1QM6bEXY6XvCrWJnwBC',
+        walletId: 'tz1RnCGSjMafWbx6WioVAyw8wxSDTz7parWU',
+        edition: 117
+    },
+    {
+        seed: 'oou8L8kezPakyuZ7U1PYARkMnwiNVr3NxeVuE663JXnL3izgP1d',
+        walletId: 'tz1anXcLR9C6gjs8FLAB5ZuZnLB3MUepByEE',
+        edition: 118
+    },
+    {
+        seed: 'oo9E2iBjNGBTnpXEt8ykrAfLG2yLJzqfeiQQxffQAnYh5C7dFj9',
+        walletId: 'tz1NcUUJKg79Vpk4jxQjmKrrxY7gpUXJXhTY',
+        edition: 119
+    },
+    {
+        seed: 'ooBYwZnnQnVJa1EoqjwjqiaPSipboNev5FfJLjE5xDfqjezCp9V',
+        walletId: 'tz1Uza3jMhipiQMtmeEidizjbSqnqZMQyRv7',
+        edition: 120
+    },
+    {
+        seed: 'ooU3U5Px8BGskucsXYktPKGJkx6ZRDEFcYCc5Uh3YXzvmkCgxwH',
+        walletId: 'tz1SXnaADssozctaFKr6ajZgJ6jSjq5uLxjF',
+        edition: 121
+    },
+    {
+        seed: 'ooZ62LZMwDT2smKrXPt9w24eWnMLuZ1Zq85m9SAKAbBzD4CV2aS',
+        walletId: 'tz1N1uQa5RhpYDcKAGVp9wg3wvJ4oq1VPSsW',
+        edition: 122
+    },
+    {
+        seed: 'op9RD7t5PdHcL5wZapvykvmRYH1qdAHFG6ZKKRMpjezcn7JTHAD',
+        walletId: 'tz1fzJFDVUYJSCv5EkXWv6S1zDNjmPtsxRD2',
+        edition: 123
+    },
+    {
+        seed: 'oneJu4A84ReJ7CNLS3ZakeDt36hZowPYvVj5i8sMZet585V9VwR',
+        walletId: 'tz1PRMuiYwSLE6mJy9PnjScPEGYLiRn6C8b8',
+        edition: 124
+    },
+    {
+        seed: 'opK2d8mBpWiTKWXo9eMbSs87DRXhvnQfZQL2wzVk1oa6RyYbVrU',
+        walletId: 'tz1MDEdswvC13ijGhPKHvAYZYjfNGXnCsekp',
+        edition: 125
+    },
+    {
+        seed: 'ooSNuee7Lms9d1JdTKaw3XpmYkbL3qo1jU18qN22CJ9zQwjc4n5',
+        walletId: 'tz1MDEdswvC13ijGhPKHvAYZYjfNGXnCsekp',
+        edition: 126
+    },
+    {
+        seed: 'ongr44pyeQyf8otrAU1oYL22uBqaBXtWSJknxNJgGh8ibe6MJz3',
+        walletId: 'tz1bpZNjxdgrUkMnGSiuBQduciHKLAFe41gM',
+        edition: 127
+    },
+    {
+        seed: 'op32Nm23pTBa2457CUeGGtJqA2qEDLCsYpFaT1s3kEEZDpnTK6y',
+        walletId: 'tz1bVYxjA1CuaTLqqZ9GwxVtmJQB3c7oNsta',
+        edition: 128
+    },
+    {
+        seed: 'onsT1hvfYNxSckvZ6CduWbsWvifqyHMewzuLJLAQ8JGZHwU9cyj',
+        walletId: 'tz1UZGPJtRLsNyYUuYyQU9DSepSF13XxYxFk',
+        edition: 129
+    },
+    {
+        seed: 'opDaq2fM7A7JKXNvPKWJjNyN1gfdbWxrf5f81Js8bZc6z5A9vU2',
+        walletId: 'tz1YQh4z1fEYZEJhMyV4iXuxAW17LZ4Ashmo',
+        edition: 130
+    },
+    {
+        seed: 'oor6GnbBKhrASLeWxjPs1qAME2CEUM1f1TivyYdc5LLd9NBCnAA',
+        walletId: 'tz1bvZLTXp7fXUSZsVZQRtyvcEz5hy3pGbwZ',
+        edition: 131
+    },
+    {
+        seed: 'oo6PJX2AeZQTNcx9PtcGk6ZSB6BxUgZNG4fXz3YYMgDu3wQxXMc',
+        walletId: 'tz1PYqfNnkpZydtSY2Tn3Rv8mjkgUpHJpFXC',
+        edition: 132
+    },
+    {
+        seed: 'onhEHp14gjsi1xbCB2dFoDzMKNms9UNqxB3T3ZhWfuBShfG7D4w',
+        walletId: 'tz1d4zP1ZbzvXo9nzGVADieAYRyTLJzFvPvW',
+        edition: 133
+    },
+    {
+        seed: 'ooaNU9LPPbXHUD7SJJYMuSQKDVoUkgW4AetEFy3TSwa4r1PN56G',
+        walletId: 'tz1SbPqeXzDLBveaDonADGSBCso3ta7jenHP',
+        edition: 134
+    },
+    {
+        seed: 'ooBgyBWjWaYxXh2yLvksnzabeXeeGLQZFq6ivn34vcj2FpUbDZw',
+        walletId: 'tz1f7LPedx2RMTthZUfdySURZPZsBeQb2TFK',
+        edition: 135
+    },
+    {
+        seed: 'oovx5JjvXBYC1bxPxg6zxo3Wbw913kTYTPxenQwj3fbCosq4xyg',
+        walletId: 'tz1dQoq5JSxGX5ZjT2rM2pABefNMU98MsLvW',
+        edition: 136
+    },
+    {
+        seed: 'onhgdyqCjpyKymqWAwzf6jCcasUDe3gr61GjWh5qa3xSxSKgJBG',
+        walletId: 'tz1WdZcXjzUZUwEYqDvKzYZ5oDMTXgNw9myj',
+        edition: 137
+    },
+    {
+        seed: 'ooNp79oYwjfXnmaSH6EkhfSQm3ELFAXbe5X5ba3PEeVr2EcUZhZ',
+        walletId: 'tz1i5uekB9LeMyJFZKbMD4PkKwSJHpcXVrBJ',
+        edition: 138
+    },
+    {
+        seed: 'oo6kfoCdZjiVwoTjEsgaUBeDwE2s9Ut2DpKT2XZW5UmdmM6u2R8',
+        walletId: 'tz1bfPZGyRWBBUhmVL6AtRBvwtr63B9oBGVc',
+        edition: 139
+    },
+];
+
+const currentSeeds = [
+    {
+        seed: 'oomKbRPABkMZBHDGihMGBmT3B6RrzsYLd7SfhwHute2MaiZRiGN',
+        walletId: 'tz1WLzGuhJx3Tarf3RvzFGgZBHQBYsz956fZ',
+        edition: 140
     }
 ];
 
@@ -962,6 +1092,6 @@ await generateAllSquadrons(currentSeeds);
 // Note: Stats Only
 // await generateStats(allSeeds);
 // Note: Enemies
-await generateEnemySquadronData(10);
+// await generateEnemySquadronData(10);
 // Note: Test Only
 // await generateAllSquadrons(testSeeds, 'player');
