@@ -1074,13 +1074,88 @@ const allSeeds = [
         walletId: 'tz1bfPZGyRWBBUhmVL6AtRBvwtr63B9oBGVc',
         edition: 139
     },
-];
-
-const currentSeeds = [
     {
         seed: 'oomKbRPABkMZBHDGihMGBmT3B6RrzsYLd7SfhwHute2MaiZRiGN',
         walletId: 'tz1WLzGuhJx3Tarf3RvzFGgZBHQBYsz956fZ',
         edition: 140
+    },
+    {
+        seed: 'oomZ5UkqVnshftUUHmXDLzVU5tuRqyC7foSsyUW6pcBwf7C5MA6',
+        walletId: 'tz1dKBei1mr3mA4LvmiMMM2iHpGz3Vuwn2Fx',
+        edition: 141
+    },
+    {
+        seed: 'ookHmoBAX5rz4Mw9uX7enJnRRTVQHygaU3bag1Cn6hm9NnGmjWK',
+        walletId: 'tz1cDCf4DbaeP2MNLAbCUpu1PXhrKtJiAcra',
+        edition: 142
+    },
+    {
+        seed: 'oovXwLeTe433hB3AewwZAbRF52ewt8VwF1viSUcRCbYCmwZuANJ',
+        walletId: 'tz1Me77NWVevASUjQGdKfnvuGpgsRCxL9Vp5',
+        edition: 143
+    },
+    {
+        seed: 'ooA8Y5YhgD2ewRnvhT143Tt7JUJFJjXfkSgt8NWA6snNAfyF9sr',
+        walletId: 'tz1Ze2Lj7GaHbwbhVzkJVPwGfHfYZfVfmfBo',
+        edition: 144
+    },
+    {
+        seed: 'oo64QuHkCf8mPxuL2b2Rpcw5RaTQKJm3H5VsP9DYcH1axQ4vjq2',
+        walletId: 'tz1gN5Ch4VeDZjiM6R1KPMBxPWFxL3HHKZyT',
+        edition: 145
+    },
+    {
+        seed: 'ookH6BJVbqzFKQgwdmN1xCt9HaL8E6rWgeeSZPT2d5t7nQkSUS6',
+        walletId: 'tz2L4t9S9LjpR2ca6B869siiKe2Ymp3aQ4gg',
+        edition: 146
+    },
+    {
+        seed: 'ooU7TvvcEBDMusF2Bob1gAkA9dgCAnXaCfTrKgm9eaSjJvgZZqc',
+        walletId: 'tz1esEY2yNUNAFnescGecqbiEjuB7W5uvJNE',
+        edition: 147
+    },
+    {
+        seed: 'ooU7TvvcEBDMusF2Bob1gAkA9dgCAnXaCfTrKgm9eaSjJvgZZqc_2',
+        walletId: 'tz1esEY2yNUNAFnescGecqbiEjuB7W5uvJNE',
+        edition: 148
+    },
+    {
+        seed: 'oneLJHCW3MTKHZiKiVtrwsWNa6xTuMtRVY5MJnNBiZbhK2uXP1G',
+        walletId: 'tz1UAZp8zBYH81fEwHyymxr2uLSJ85tr7jRo',
+        edition: 149
+    },
+    {
+        seed: 'onxZtszrRSiE8VifMc6dzVraLpqdaqsAj8Yjg9XwSEqS4eVxADC',
+        walletId: 'tz2PmGHgqgaLqgGmnCuZionifH3sFvKBsQtn',
+        edition: 150
+    },
+    {
+        seed: 'ooP5mbPjVPcQYXatKg4KX7J71mFszRjNFpFiGzMp5yLiLoFKvuq',
+        walletId: 'tz1WFzAHogHEZXivRWGiM85K3DjxxHeZGZ8J',
+        edition: 151
+    },
+    {
+        seed: 'oomXhFep9b2g3XqkWxD99WqK1XDHuKZw58rqg8de5Bkaq1NeBXu',
+        walletId: 'tz1dTmMLY7tan1HKfW5e3KxJcfZput6UuTH6',
+        edition: 152
+    },
+    {
+        seed: 'oo1q6RFo6AdaU2LGevooUGPh5gBq6mpcA8s1f6QiaXKfi2XvtnV',
+        walletId: 'tz1NGDuYTuuB1geX1K5b88cqa8JinFLdd3d5',
+        edition: 153
+    },
+    {
+        seed: 'opFc2UB35UyEvWTjoL8QJaMYoFA5znuZj9M9HZb6GG56Ptr42xt',
+        walletId: 'tz1TbfHAvNjs2D52ejHuXRrH1iQxHWePwoAm',
+        edition: 154
+    },
+];
+
+const currentSeeds = [
+    {
+        seed: 'opa1Nd4CWTgzYfRACBATmS9vDPBhiQroWVhKFZvcJUwAJJTB51j',
+        walletId: 'tz2ALu8Jxf2SMgzSZaZEwfiJQbogpUDPStwz',
+        edition: 155
     }
 ];
 
