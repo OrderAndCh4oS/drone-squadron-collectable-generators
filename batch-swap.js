@@ -11,6 +11,7 @@ import { InMemorySigner } from '@taquito/signer';
 import parse from 'csv-parse/lib/sync.js';
 
 import util from 'util';
+import { NoopSigner } from '@taquito/taquito/dist/types/signer/noop';
 
 config();
 
@@ -22,6 +23,9 @@ const outputFile = path.join('batch', 'completed.csv');
 
 const txConfirmations = process.env.CONFIRMATIONS || 3;
 const txConfirmationTimeout = process.env.CONFIRMATIONTIMEOUT || txConfirmations * (2 * 60);
+
+// Todo: make a script to batch swap
+// https://better-call.dev/mainnet/KT1HbQepzV1nVGg8QVznG7z4RcHseD5kwqBn/interact?entrypoint=swap
 
 const main = async() => {
     const Tezos = new TezosToolkit('https://mainnet.smartpy.io/');
